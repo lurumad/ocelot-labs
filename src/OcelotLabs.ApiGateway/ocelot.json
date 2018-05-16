@@ -1,0 +1,45 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "UpstreamPathTemplate": "/products",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44381
+        }
+      ],
+      "Key": "products"
+    },
+    {
+      "DownstreamPathTemplate": "/api/offers",
+      "UpstreamPathTemplate": "/offers",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44392
+        }
+      ],
+      "Key": "offers"
+    }
+  ],
+  "Aggregates" :
+  [
+    {
+      "ReRouteKeys": [
+        "offers",
+        "products"
+      ],
+      "UpstreamPathTemplate": "/mobile"
+    }
+  ],
+  "GlobalConfiguration": {}
+}
